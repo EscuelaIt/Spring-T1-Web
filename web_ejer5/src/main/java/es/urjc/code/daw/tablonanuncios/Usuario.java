@@ -20,10 +20,10 @@ public class Usuario {
 		this.nombre = nombre;
 	}
 
-	public void incAnuncios(){
+	public void incAnuncios() {
 		this.numAnuncios++;
 	}
-	
+
 	public int getNumAnuncios() {
 		return numAnuncios;
 	}

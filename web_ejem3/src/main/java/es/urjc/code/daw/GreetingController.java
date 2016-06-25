@@ -7,15 +7,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class GreetingController {
-	
+
 	@Autowired
 	private UserService usersService;
-	
+
 	@RequestMapping("/greeting")
 	public String greeting(Model model) {
-		
-		model.addAttribute("name", usersService.getNumUsers()+" users");
-		
+
+		model.addAttribute("name", usersService.getNumUsers() + " users");
+
 		return "greeting_template";
 	}
 

@@ -12,7 +12,7 @@ public class AnuncioController {
 	public String guardarAnuncio(Model model, Anuncio anuncio) {
 
 		model.addAttribute("anuncio", anuncio);
-		
+
 		return "anuncio";
 	}
 }

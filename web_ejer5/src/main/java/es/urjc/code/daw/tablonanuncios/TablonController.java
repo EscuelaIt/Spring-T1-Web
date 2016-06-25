@@ -16,14 +16,14 @@ public class TablonController {
 
 	@Autowired
 	private Usuario usuario;
-	
+
 	private List<Anuncio> anuncios = new ArrayList<>();
-	
-	public TablonController(){
-		anuncios.add(new Anuncio("Pepe","Hola caracola", "XXXX"));
-		anuncios.add(new Anuncio("Juan","Hola caracola", "XXXX"));
+
+	public TablonController() {
+		anuncios.add(new Anuncio("Pepe", "Hola caracola", "XXXX"));
+		anuncios.add(new Anuncio("Juan", "Hola caracola", "XXXX"));
 	}
-	
+
 	@RequestMapping("/")
 	public String tablon(Model model, HttpSession session) {
 
@@ -32,35 +32,35 @@ public class TablonController {
 
 		return "tablon";
 	}
-	
+
 	@RequestMapping("/anuncio/nuevo")
 	public String nuevoAnuncio(Model model, Anuncio anuncio) {
 
 		anuncios.add(anuncio);
-		
+
 		usuario.setNombre(anuncio.getNombre());
 		usuario.incAnuncios();
 
 		return "anuncio_guardado";
 
 	}
-	
+
 	@RequestMapping("/anuncio/nuevo_form")
 	public String nuevoAnuncioForm(Model model) {
 
-		model.addAttribute("nombre",  usuario.getNombre());
+		model.addAttribute("nombre", usuario.getNombre());
 		model.addAttribute("num_anuncios", usuario.getNumAnuncios());
 
 		return "nuevo_anuncio";
 	}
-	
+
 	@RequestMapping("/anuncio/{num}")
 	public String nuevoAnuncio(Model model, @PathVariable int num) {
 
-		Anuncio anuncio = anuncios.get(num-1);
+		Anuncio anuncio = anuncios.get(num - 1);
 
-		model.addAttribute("anuncio",anuncio);
-		
+		model.addAttribute("anuncio", anuncio);
+
 		return "ver_anuncio";
 	}
 }

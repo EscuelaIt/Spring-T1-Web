@@ -18,18 +18,18 @@ public class SesionController {
 
 		sesion.setAttribute("infoUsuario", info);
 		infoCompartida = info;
-		
+
 		return "resultado_formulario";
 	}
 
 	@RequestMapping("/mostrarDatos")
 	public String mostrarDatos(Model model, HttpSession sesion) {
-		
+
 		String infoUsuario = (String) sesion.getAttribute("infoUsuario");
-		
+
 		model.addAttribute("infoUsuario", infoUsuario);
 		model.addAttribute("infoCompartida", infoCompartida);
-		
+
 		return "datos";
 	}
 }

@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class TablonController {
 
 	private List<Anuncio> anuncios = new ArrayList<>();
-	
-	public TablonController(){
-		anuncios.add(new Anuncio("Pepe","Hola caracola", "XXXX"));
-		anuncios.add(new Anuncio("Juan","Hola caracola", "XXXX"));
+
+	public TablonController() {
+		anuncios.add(new Anuncio("Pepe", "Hola caracola", "XXXX"));
+		anuncios.add(new Anuncio("Juan", "Hola caracola", "XXXX"));
 	}
-	
+
 	@RequestMapping("/")
 	public String tablon(Model model) {
 
@@ -25,7 +25,7 @@ public class TablonController {
 
 		return "tablon";
 	}
-	
+
 	@RequestMapping("/anuncio/nuevo")
 	public String nuevoAnuncio(Model model, Anuncio anuncio) {
 
@@ -34,14 +34,14 @@ public class TablonController {
 		return "anuncio_guardado";
 
 	}
-	
+
 	@RequestMapping("/anuncio/{num}")
 	public String verAnuncio(Model model, @PathVariable int num) {
 
-		Anuncio anuncio = anuncios.get(num-1);
+		Anuncio anuncio = anuncios.get(num - 1);
 
-		model.addAttribute("anuncio",anuncio);
-		
+		model.addAttribute("anuncio", anuncio);
+
 		return "ver_anuncio";
 	}
 }

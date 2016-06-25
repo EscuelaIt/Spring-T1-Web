@@ -7,5 +7,5 @@ public class UserService {
 
 	public int getNumUsers() {
 		return 5;
-	}	
+	}
 }
